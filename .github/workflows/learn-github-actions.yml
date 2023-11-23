@@ -18,10 +18,15 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: setup node
+        uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
-      - run: echo Select OS release:${{inputs.set_release}}
+      - name: install bats
+        run: npm install -g bats
+      - name: print version
+        run: bats -v
+      - name: print input env
+        run: echo Select OS release:${{inputs.set_release}}
