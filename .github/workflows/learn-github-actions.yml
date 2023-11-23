@@ -34,4 +34,8 @@ jobs:
         run: bats -v
       - name: print input env
         id: print_env
-        run: echo Select OS release:${{inputs.set_release}}
+        run: |
+          echo Select OS release:${{inputs.set_release}}
+          docker --version
+          docker image ls
+          docker container ls
