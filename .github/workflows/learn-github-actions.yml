@@ -35,7 +35,11 @@ jobs:
       - name: print input env
         id: print_env
         run: |
+          echo "::group::log group 1"
           echo Select OS release:${{inputs.set_release}}
+          echo "::endgroup::"
+          echo "::group::log group 1"
           docker --version
           docker image ls
           docker container ls
+          echo "::endgroup::"
