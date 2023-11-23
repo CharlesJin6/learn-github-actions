@@ -1,4 +1,4 @@
-name: learn-github-actions
+name: learn-github-actions for build armbian
 run-name: ${{github.action}} build armbian
 on:
   repository_dispatch:
