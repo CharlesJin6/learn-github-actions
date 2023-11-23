@@ -19,14 +19,19 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
+        id: checkout_code
         uses: actions/checkout@v4
       - name: setup node
+        id: setup_node
         uses: actions/setup-node@v3
         with:
           node-version: '14'
       - name: install bats
+        id: install_bats
         run: npm install -g bats
       - name: print version
+        id: print_version
         run: bats -v
       - name: print input env
+        id: print_env
         run: echo Select OS release:${{inputs.set_release}}
