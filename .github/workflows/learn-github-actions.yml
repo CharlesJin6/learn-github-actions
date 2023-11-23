@@ -1,6 +1,19 @@
 name: learn-github-actions
 run-name: ${{github.action}} build armbian
-on: [push]
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      set_release:
+        description: "Select OS release:"
+        required: false
+        default: "jammy"
+        type: choice
+        options:
+          - jammy
+          - bullseye
+          - lunar
+          - bookworm
 jobs:
   check-bats-version:
     runs-on: ubuntu-22.04
